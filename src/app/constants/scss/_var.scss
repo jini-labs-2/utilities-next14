@@ -1,0 +1,26 @@
+:root {
+  --mainfont-nanum: "nanumSquareNeo";
+  --mainfont-nexon: "nexonLv1";
+
+  --black: #000;
+  --black100: #111;
+  --black200: #222;
+  --black300: #333;
+  --black400: #444;
+  --black500: #555;
+  
+  --white: #fff;
+  --white100: #eee;
+  --white200: #ddd;
+  --white300: #ccc;
+  --white400: #bbb;
+  --white500: #aaa;
+
+  font-size: 16px;
+  line-height: 1.5;
+
+  @media (max-width: 800px) {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+}

@@ -1,10 +1,11 @@
 import React from 'react'
-import styles from '../page.module.css'
+import '../page.module.css'
+import Navbar from './pages/Navbar'
 
 const Header = () => {
   return (
-    <header className={styles.header}>
-      Header
+    <header id='header'>
+      <Navbar />
     </header>
   )
 }

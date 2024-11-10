@@ -1,0 +1,11 @@
+@import 'scss/reset';
+@import 'scss/var';
+@import 'scss/header';
+@import 'scss/uuid';
+
+.wrap {
+  width: 800px;
+  height: 100vh;
+  background-color: var(--white100);
+  margin: 0 auto;
+}
