@@ -20,7 +20,9 @@ export default function Navbar() {
         {menuItems?.map(menu => {
             return (
               <li key={menu.name}>
-                <Link href={menu.path}>{menu.name}</Link>
+                <Link href={menu.path}>
+                  <span className="nav__name"> {menu.name} </span>
+                </Link>
               </li>
             )
         })}
