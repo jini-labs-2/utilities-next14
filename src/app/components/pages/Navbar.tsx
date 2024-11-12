@@ -9,14 +9,15 @@ interface MenuItem {
 const menuItems: MenuItem[] = [
   { name: 'Home', path: '/'},
   { name: 'CIDR', path: '/cidr'},
+  { name: 'timestamp', path: '/timestamp', ready: true},
   { name: 'UUID v1', path: '/ids/uuidv1'},
   { name: 'UUID v3', path: '/ids/uuidv3'},
   { name: 'UUID v4', path: '/ids/uuidv4'},
   { name: 'UUID v5', path: '/ids/uuidv5'},
-  { name: 'LID', path: '/ids/lid', ready: true},
-  { name: 'ULID', path: '/ids/ulid', ready: true},
-  { name: 'ShortID', path: '/ids/shortid', ready: true},
-  { name: 'CUID', path: '/ids/cuid', ready: true},
+  { name: 'LID', path: '/ids/lid'},
+  { name: 'ULID', path: '/ids/ulid'},
+  { name: 'ShortID', path: '/ids/shortid'},
+  { name: 'CUID', path: '/ids/cuid'},
 ];
 
 export default function Navbar() {
