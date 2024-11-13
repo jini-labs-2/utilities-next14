@@ -1,43 +1,44 @@
 'use client'
-import React, { useEffect, useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import React, { useState, useEffect } from 'react';
+import shortid from 'shortid';
 
-const Uuidv4 = () => {
+const Shortid = () => {
   const MAX_GEN_COUNT = 20;
   const [sampleId, setSampleId] = useState<string>('');
-  const [generateCount, setGenerateCount] = useState(1);
+  const [generateCount, setGenerateCount] = useState<number>(1);
   const [generatedIds, setGeneratedIds] = useState<string[]>([]);
 
   useEffect(() => {
-    setSampleId(uuidv4());
-  }, []);
+    setSampleId(shortid.generate());
+  }, [])
 
   const handleGenerateCount = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = Math.max(1, Math.min(MAX_GEN_COUNT, Number(e.target.value)));
     setGenerateCount(() => value);
   }
   const handleGenerateId = () => {
-    const newIds = Array.from({ length: generateCount },
-      () => uuidv4()
-    );
-
-    setGeneratedIds(newIds);
+    const newIds: string[] = [];
+    if (!generateCount || generateCount <= 0) {
+      newIds.push(shortid.generate())
+    } else {
+      for (let i = 0; i < generateCount; i++) {
+        newIds.push(shortid.generate());
+      }
+    }
+    setGeneratedIds(() => newIds);
   }
   const handleCopyToClipboard = (ids: string[]) => {
     if (ids.length) {
       navigator.clipboard.writeText(ids.join(' '));
     }
   }
-
   return (
     <div className='uuid__inner'>
       <div className='uuid__title'>
-        <h2> UUID v4 </h2>
+        <h2> ShortID </h2>
       </div>
       <div className='uuid__description'>
-        <h3>
-        完全にランダムな値で生成されるUUIDです。
-        </h3>
+      ランダムな文字列や数字で生成されるユニークなIDです。オブジェクトを作成する際にアサインされることがあり、オブジェクト名のハッシュから生成されます。
       </div>
       <div className='uuid__sample'>
         <h3 className='uuid__sample_title'>サンプル</h3>
@@ -61,18 +62,18 @@ const Uuidv4 = () => {
         <button onClick={handleGenerateId}>生成</button>
       </div>
       <div className='uuid__created_ids'>
-        <div>
+        <p>
           {generatedIds.length > 0 &&
-            <>
+            <div>
               {generatedIds.map((item) => (
-                <p className='uuid__created_id' key={item}> {item} </p>
+                <div className='uuid__created_id' key={item}> {item} </div>
               ))}
-            </>
+            </div>
           }
-        </div>
+        </p>
       </div>
     </div>
   )
 }
 
-export default Uuidv4
+export default Shortid

@@ -1,0 +1,59 @@
+.uuid__inner {
+  width: 800px;
+  height: 100vh;
+  overflow: auto;
+
+  .uuid__title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 800;
+  }
+  .uuid__description {
+    text-align: center;
+    font-size: 1.3rem;
+    padding: 2rem;
+   }
+  .uuid__sample {
+    text-align: center;
+    padding-bottom: 1rem;
+   }
+  .uuid__sample_title {
+    text-align: center;
+    padding-bottom: .8rem;
+   }
+  .uuid__id_copy {
+    cursor: pointer;
+    padding: .5rem 1rem;
+    color: blue;
+   }
+  .uuid__create {
+    text-align: center;
+
+    .uuid_create_input_count {
+      display: inline-block;
+      width: 200px;
+      padding: .5em;
+      border: 1px solid #999;
+      box-sizing: border-box;
+      background: #f2f2f2;
+      margin: 0.5em 0;
+    }
+
+    button {
+      margin-left: 1.5rem;
+      padding: .4rem 2rem;
+      border: 1px solid var(--black500);
+    }
+
+    .uuid__create_id {
+      text-align: center;
+      padding: 2rem;
+    }
+  }
+  .uuid__created_ids {
+    margin: 1rem 8rem;
+    text-align: center;
+    border: 1px solid var(--white300);
+    
+  }
+}

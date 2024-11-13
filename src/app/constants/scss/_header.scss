@@ -1,0 +1,29 @@
+#header {
+  width: 100%;
+  height: 100px;
+  background-color: var(--black100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white200);
+
+  .nav {
+    margin: 0 auto;
+
+    ul {
+      display: flex;
+      flex-direction: row;
+
+      .nav__name {
+        padding: 8px 28px;
+        background-color: var(--black100);
+        border-radius: 50px;
+      }
+      .nav__name:hover {
+        background-color: var(--white200);
+        color: var(--black100);
+        border-radius: 50px;
+      }
+    }
+  }
+}
