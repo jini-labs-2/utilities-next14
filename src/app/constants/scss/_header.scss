@@ -13,6 +13,9 @@
     ul {
       display: flex;
       flex-direction: row;
+      li {
+        text-wrap: nowrap;
+      }
 
       .nav__name {
         padding: 8px 28px;
@@ -22,6 +25,11 @@
       .nav__name:hover {
         background-color: var(--white200);
         color: var(--black100);
+        border-radius: 50px;
+      }
+      .nav__name.active {
+        background-color: var(--white400);
+        color: var(--black200);
         border-radius: 50px;
       }
     }
