@@ -2,7 +2,7 @@ import Link from 'next/link'
 import React from 'react'
 import { IoIosConstruct } from "react-icons/io";
 
-const pages = () => {
+const CommingSoon = () => {
   return (
       <div style={{
         display: 'flex',
@@ -19,4 +19,4 @@ const pages = () => {
   )
 }
 
-export default pages
+export default CommingSoon

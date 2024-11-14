@@ -1,8 +1,9 @@
 import React from 'react'
+import CommingSoon from '../coming-soon/page'
 
 const pages = () => {
   return (
-    <div>timestamp</div>
+    <CommingSoon />
   )
 }
 

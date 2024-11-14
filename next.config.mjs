@@ -2,7 +2,7 @@
 const nextConfig = {
   output: 'export',
   distDir: 'dist',
-  cleanDistDir: 'dist',
+  cleanDistDir: true,
   trailingSlash: true,
 };
 

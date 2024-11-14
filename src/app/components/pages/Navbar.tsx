@@ -5,21 +5,20 @@ import { usePathname } from "next/navigation";
 interface MenuItem {
   name: string,
   path: string,
-  active?: boolean,
-  ready?: boolean,
 }
 
 const menuItems: MenuItem[] = [
   { name: 'CIDR', path: '/cidr/'},
-  { name: 'UUID v1', path: '/ids/uuidv1/'},
-  { name: 'UUID v3', path: '/ids/uuidv3/'},
-  { name: 'UUID v4', path: '/ids/uuidv4/'},
-  { name: 'UUID v5', path: '/ids/uuidv5/'},
+  { name: 'UUIDv1', path: '/ids/uuidv1/'},
+  { name: 'UUIDv3', path: '/ids/uuidv3/'},
+  { name: 'UUIDv4', path: '/ids/uuidv4/'},
+  { name: 'UUIDv5', path: '/ids/uuidv5/'},
   { name: 'LID', path: '/ids/lid/'},
   { name: 'ULID', path: '/ids/ulid/'},
   { name: 'ShortID', path: '/ids/shortid/'},
   { name: 'CUID', path: '/ids/cuid/'},
-  { name: 'Timestamp', path: '/timestamp/', ready: true},
+  { name: 'Calendar', path: '/iframes/calendar/'},
+  { name: 'Timestamp', path: '/times/'},
 ];
 
 export default function Navbar() {
@@ -28,13 +27,12 @@ export default function Navbar() {
     <nav className="nav">
       <ul>
         {menuItems?.map(menu => {
-            const linkPath = menu.ready ? '/coming-soon' : menu.path;
             return (
               <li key={menu.name}>
-                <Link href={linkPath}>
-                  <span className={`nav__name ${menu.path === pathName || menu.active ? 'active' : ''}`}> {menu.name} </span>
-                </Link>
-              </li>
+                <Link href={menu.path}>
+                  <span className={`nav__name ${menu.path === pathName ? 'active' : ''}`}> {menu.name} </span>
+                          </Link>
+                        </li>
             )
         })}
       </ul>
