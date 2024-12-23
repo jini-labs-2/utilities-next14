@@ -8,20 +8,27 @@
   color: var(--white200);
 
   .nav {
+    border: 1px silver white;
+    width: 80%;
     margin: 0 auto;
 
     ul {
       display: flex;
-      flex-direction: row;
+      flex-wrap: wrap;
 
       .nav__name {
-        padding: 8px 28px;
+        padding: 4px 28px;
         background-color: var(--black100);
         border-radius: 50px;
       }
       .nav__name:hover {
         background-color: var(--white200);
         color: var(--black100);
+        border-radius: 50px;
+      }
+      .nav__name.active {
+        background-color: var(--white400);
+        color: var(--black200);
         border-radius: 50px;
       }
     }

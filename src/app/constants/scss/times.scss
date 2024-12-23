@@ -1,0 +1,40 @@
+.times__inner {
+  width: 800px;
+  height: 100vh;
+  overflow: auto;
+
+  .times__title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 800;
+  }
+  .times__subtitle {
+    margin: 2.0rem auto;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 800;
+  }
+  .times__subtitle h2 {
+    display: inline;
+    border-bottom: 2px solid #777;
+  }
+
+  .times__input {
+    margin: 0 auto;
+  }
+  .times__input_unixtime,
+  .times__input_datetime {
+    width: 300px;
+    height: 1.5rem;
+  }
+  .times__input_button,
+  .times__input_submit {
+    margin-left: .8rem;
+    padding: 0 1.8rem;
+    height: 1.7rem;
+  }
+  .times__converted_datetime {
+    width: 400px;
+    height: 1.5rem;
+  }
+}
