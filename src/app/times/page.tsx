@@ -2,12 +2,17 @@
 
 import { useState } from 'react'
 import { format, fromUnixTime, getUnixTime } from 'date-fns'
+import DatePicker, { registerLocale } from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
+import { ja } from 'date-fns/locale/ja';
 // import { Button } from "@/components/ui/button"
 // import { Input } from "@/components/ui/input"
 
 export default function DateTimePage() {
   const [unixTime, setUnixTime] = useState('')
   const [dateTimeString, setDateTimeString] = useState('')
+  const [inputDate, setInputDate] = useState<Date>();
+  registerLocale('ja', ja)
 
   const convertToDateTime = () => {
     try {
@@ -21,8 +26,7 @@ export default function DateTimePage() {
 
   const convertToUnixTime = () => {
     try {
-      const date = new Date(dateTimeString)
-      setUnixTime(String(getUnixTime(date)))
+      setUnixTime(String(getUnixTime(inputDate ?? new Date())))
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       setUnixTime('無効な日時文字列です')
@@ -34,10 +38,41 @@ export default function DateTimePage() {
       <div className="times__title">
         <h2>日時変換</h2>
       </div>
+      <div>
+        <div className="times__subtitle">
+          <h3>日時 → Unix時間</h3>
+          <div className="times__input">
+              <DatePicker
+                className='times__input_picker'
+                selected={inputDate}
+                onChange={(date) => {setInputDate(date || new Date())}}
+                showTimeSelect
+                locale='ja'
+                dateFormat='YYY/MM/dd hh:mm:ss'
+                timeFormat='HH:mm:ss'
+                timeIntervals={1}
+                timeCaption='Time'
+                placeholderText='YYYY/MM/DD HH:mm:ss'
+              />
+              <button
+                onClick={convertToUnixTime}
+                className="times__input_submit"
+              >
+                変換
+              </button>
+            </div>
+            <input
+              type="text"
+              value={unixTime}
+              readOnly
+              className="times__converted_datetime"
+            />
+          </div>
+        </div>
       <div className="space-y-4">
         <div>
           <div className="times__subtitle">
-            <h2> Unix時間 → 日時 </h2>
+            <h3> Unix時間 → 日時 </h3>
             <div className="times__input">
               <input
                 type="text"
@@ -53,32 +88,6 @@ export default function DateTimePage() {
                 変換
               </button>
             </div>
-          </div>
-        </div>
-        <div>
-          <div className="times__subtitle">
-            <h2>日時 → Unix時間</h2>
-            <div className="times__input">
-              <input
-                  type="text"
-                  value={dateTimeString}
-                  onChange={(e) => setDateTimeString(e.target.value)}
-                  placeholder="YYYY-MM-DD HH:mm:ss"
-                  className="times__input_datetime"
-                />
-                <button
-                  onClick={convertToUnixTime}
-                  className="times__input_submit"
-                >
-                  変換
-                </button>
-              </div>
-              <input
-                type="text"
-                value={unixTime}
-                readOnly
-                className="times__converted_datetime"
-              />
           </div>
         </div>
       </div>
