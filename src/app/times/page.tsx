@@ -10,6 +10,7 @@ import { ja } from 'date-fns/locale/ja';
 
 export default function DateTimePage() {
   const [unixTime, setUnixTime] = useState('')
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [dateTimeString, setDateTimeString] = useState('')
   const [inputDate, setInputDate] = useState<Date>();
   registerLocale('ja', ja)
